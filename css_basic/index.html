@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="base.css" rel="stylesheet">
+<link href="styles.css" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Website Structure Example</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f5f8fa;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header Styles */
+        header {
+            background: linear-gradient(135deg, #6e8efb, #a777e3);
+            color: white;
+            padding: 20px 0;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+        
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            flex-wrap: wrap;
+        }
+        
+        nav ul li {
+            margin: 0 15px;
+        }
+        
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 8px 15px;
+            border-radius: 20px;
+            transition: background-color 0.3s;
+        }
+        
+        nav ul li a:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+        
+        /* Main Content Styles */
+        main {
+            padding: 30px 0;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+        
+        article {
+            flex: 2;
+            min-width: 300px;
+            background: white;
+            border-radius: 10px;
+            padding: 25px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        article h1 {
+            color: #6e8efb;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #f0f0f0;
+            padding-bottom: 10px;
+        }
+        
+        article p {
+            margin-bottom: 15px;
+        }
+        
+        .tweet-card {
+            background: #f8f9fa;
+            border-left: 4px solid #a777e3;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+        
+        .tweet-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        
+        .tweet-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: #6e8efb;
+            margin-right: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+        }
+        
+        /* Aside Styles */
+        aside {
+            flex: 1;
+            min-width: 250px;
+            background: white;
+            border-radius: 10px;
+            padding: 25px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            height: fit-content;
+        }
+        
+        aside h2 {
+            color: #a777e3;
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+        
+        aside p {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 5px;
+            font-style: italic;
+            color: #666;
+        }
+        
+        /* Footer Styles */
+        footer {
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+            margin-top: 30px;
+        }
+        
+        footer a {
+            color: #6e8efb;
+            text-decoration: none;
+        }
+        
+        footer a:hover {
+            text-decoration: underline;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            main {
+                flex-direction: column;
+            }
+            
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            nav ul li {
+                margin: 5px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">My Website</div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="tweets.html">Tweets</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </header>
+        
+        <main>
+            <article>
+                <h1>Welcome to Our Website</h1>
+                <p>Hello my name is Okewu SAmuel Owoicho</p>
+                
+                <p>I am a fighter pilot for the Nigerian Airforce and currently learning to be a Software Engineer with the ALX_AFRICA</p>
+                
+                <div class="tweet-card">
+                    <div class="tweet-header">
+                        <div class="tweet-avatar">JS</div>
+                        <div>
+                            <strong>Okewu Samuel Owoicho</strong> @jsmith · 2h
+                        </div>
+                    </div>
+                    <p>Check out this example of a properly structured HTML page! It follows all the requirements for the header, main, and footer sections. #HTML #WebDevelopment</p>
+                </div>
+                
+                <p>This structure ensures consistency across all pages of the website and provides a solid foundation for further development.</p>
+            </article>
+            
+            <aside>
+                <h2>Comment Section</h2>
+                <p>add comment thread later</p>
+            </aside>
+        </main>
+        <h3></h3>
+        <footer>
+            <p>Made by Okewu Samuel - <a href="https://www.samuelokewu.com" target="_blank">here</a></p>
+        </footer>
+    </div>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Website with Learners Table</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f5f8fa;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header Styles */
+        header {
+            background: linear-gradient(135deg, #6e8efb, #a777e3);
+            color: white;
+            padding: 20px 0;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+        
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            flex-wrap: wrap;
+        }
+        
+        nav ul li {
+            margin: 0 15px;
+        }
+        
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 8px 15px;
+            border-radius: 20px;
+            transition: background-color 0.3s;
+        }
+        
+        nav ul li a:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+        
+        /* Main Content Styles */
+        main {
+            padding: 30px 0;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+        
+        article {
+            flex: 2;
+            min-width: 300px;
+            background: white;
+            border-radius: 10px;
+            padding: 25px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        article h1 {
+            color: #6e8efb;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #f0f0f0;
+            padding-bottom: 10px;
+        }
+        
+        article p {
+            margin-bottom: 15px;
+        }
+        
+        .tweet-card {
+            background: #f8f9fa;
+            border-left: 4px solid #a777e3;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+        
+        .tweet-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        
+        .tweet-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: #6e8efb;
+            margin-right: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+        }
+        
+        /* Table Styles */
+        .learners-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 25px 0;
+            font-size: 0.9em;
+            border-radius: 5px 5px 0 0;
+            overflow: hidden;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.05);
+        }
+        
+        .learners-table thead tr {
+            background-color: #6e8efb;
+            color: white;
+            text-align: left;
+            font-weight: bold;
+        }
+        
+        .learners-table th,
+        .learners-table td {
+            padding: 12px 15px;
+        }
+        
+        .learners-table tbody tr {
+            border-bottom: 1px solid #dddddd;
+        }
+        
+        .learners-table tbody tr:nth-of-type(even) {
+            background-color: #f8f9fa;
+        }
+        
+        .learners-table tbody tr:last-of-type {
+            border-bottom: 2px solid #6e8efb;
+        }
+        
+        .learners-table tbody tr:hover {
+            background-color: #f1f3f7;
+        }
+        
+        /* Aside Styles */
+        aside {
+            flex: 1;
+            min-width: 250px;
+            background: white;
+            border-radius: 10px;
+            padding: 25px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            height: fit-content;
+        }
+        
+        aside h2 {
+            color: #a777e3;
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+        
+        aside p {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 5px;
+            font-style: italic;
+            color: #666;
+        }
+        
+        /* Footer Styles */
+        footer {
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+            margin-top: 30px;
+        }
+        
+        footer a {
+            color: #6e8efb;
+            text-decoration: none;
+        }
+        
+        footer a:hover {
+            text-decoration: underline;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            main {
+                flex-direction: column;
+            }
+            
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            nav ul li {
+                margin: 5px 0;
+            }
+            
+            .learners-table {
+                display: block;
+                overflow-x: auto;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">Learners Directory</div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="tweets.html">Tweets</a></li>
+                    <li><a href="#learners">Learners</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </header>
+        
+        <main>
+            <article>
+                <h1>Welcome to Our Learning Platform</h1>
+                <p>This is an example of a properly structured HTML document that follows the required specifications. The body contains exactly three direct sub-tags: header, main, and footer.</p>
+                
+                <p>In the main section, we have two direct sub-tags: article and aside. The article contains the main content of the page, while the aside contains supplementary information.</p>
+                
+                <div class="tweet-card">
+                    <div class="tweet-header">
+                        <div class="tweet-avatar">JS</div>
+                        <div>
+                            <strong>Okewu Samuel</strong> @sookewu · 2h
+                        </div>
+                    </div>
+                          
+                <table class="learners-table">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Age</th>
+                            <th>Country</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>John</td>
+                            <td>25</td>
+                            <td>USA</td>
+                        </tr>
+                        <tr>
+                            <td>Emily</td>
+                            <td>28</td>
+                            <td>Canada</td>
+                        </tr>
+                        <tr>
+                            <td>Michael</td>
+                            <td>32</td>
+                            <td>Australia</td>
+                        </tr>
+                        <tr>
+                            <td>Sophia</td>
+                            <td>21</td>
+                            <td>UK</td>
+                        </tr>
+                    </tbody>
+                </table>
+                
+            </article>
+            
+            <aside>
+                <h2>Comment Section</h2>
+                <p>placeholder to add comment thread later</p>
+            </aside>
+        </main>
+        
+        <footer>
+            <p>Made by John Doe - <a href="https://www.example.com" target="_blank">here</a></p>
+        </footer>
+    </div>
+</body>
+</html>
