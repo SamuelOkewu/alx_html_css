@@ -1,0 +1,31 @@
+/* Apply Flexbox to the body to create a column layout */
+body {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Apply Flexbox to the main tag to create a row layout for its children */
+main {
+  display: flex;
+  flex-direction: row;
+}
+
+/* Allow the main content area to adjust its size automatically */
+main {
+  flex: auto;
+}
+
+/* Set the content (article) to take up two parts of the available space */
+article {
+  flex: 2;
+}
+
+/* Set the aside to take up one part of the available space */
+aside {
+  flex: 1;
+}
+
+/* Enable vertical scrolling for the article and aside if their content overflows */
+article, aside {
+  overflow-y: auto;
+}
