@@ -1,642 +1,525 @@
-/* --- Global Styles & Variables (Centralized Styling) --- */
-:root {
-    /* Base Colors - Inferred from the Figma image */
-    --dark-bg: #090e12;
-    --text-white: #FFFFFF;
-    --text-light-gray: #CCCCCC;
-    
-    /* Accent Colors - Inferred from the Figma image */
-    --accent-purple: #9a08e0;       /* Used for main button & "Learn from the pros" */
-    --vibrant-purple: #a96fdd;    /* Used for the quote section background */
-}
-
-/* Base reset for consistent appearance */
+/* General Body and Typography */
 body {
+    font-family: 'Source Sans Pro', sans-serif;
     margin: 0;
-    /* Using system font to match the clean look */
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-    color: var(--text-white);
-    background-color: var(--dark-bg);
+    line-height: 1.6;
+    color: #fff; /* Default text color for dark sections */
+    background-color: #000;
 }
 
-ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
+.purple-text {
+    color: #ae48ff;
+}
+
+h1, h2, h3 {
+    margin-top: 0;
 }
 
 a {
+    color: inherit;
     text-decoration: none;
-    color: var(--text-white);
-    transition: opacity 0.2s;
-}
-a:hover {
-    opacity: 0.8;
 }
 
-/* ------------------------------------------------------------------ */
-/* --- 1. Hero Section (Header + Main CTA + Pros) --- */
-/* ------------------------------------------------------------------ */
-.hero-section {
-    /* Background image and overlay effect */
-    background-image: url('https://i.imgur.com/g8rGfJg.jpg'); /* Placeholder for the woman smiling */
-    background-size: cover;
-    background-position: center top;
-    background-repeat: no-repeat;
-    min-height: 100vh;
-    padding: 0 5%;
-    
-    /* Setup for content layout */
-    position: relative;
+/* Header Section */
+.hero {
+    background: url('https://via.placeholder.com/1920x800/222222/FFFFFF?text=Background+Image') no-repeat center center/cover;
+    min-height: 800px;
     display: flex;
     flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: 50px; /* Space for tutor section */
+    position: relative;
+    padding-top: 20px;
 }
 
-/* Dark gradient overlay to enhance text readability and overall mood */
-.hero-section::after {
+.hero::before {
     content: '';
     position: absolute;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
-    background: linear-gradient(
-        180deg, 
-        rgba(0, 0, 0, 0.4) 0%, 
-        rgba(0, 0, 0, 0.8) 50%, 
-        var(--dark-bg) 100%
-    );
-    z-index: 1; /* Place overlay above background image, but below content */
+    background: rgba(0, 0, 0, 0.6); /* Dark overlay */
 }
 
-/* Ensure all content is above the overlay */
-header, main {
-    z-index: 2; 
+.hero > * {
+    z-index: 1; /* Ensure content is above the overlay */
 }
 
-/* --- Header and Navigation --- */
-header {
-    width: 100%;
-    padding: 20px 0;
-}
-
+/* Navbar */
 .navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    width: 80%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px 0;
 }
 
-.logo {
-    width: 150px;
-    height: auto;
+.navbar .logo {
+    display: flex;
+    align-items: center;
+    font-size: 1.5em;
+    font-weight: 700;
+    color: #fff;
 }
 
-.nav-links {
+.navbar .logo img {
+    margin-right: 10px;
+}
+
+.navbar .nav-links {
+    list-style: none;
     display: flex;
     gap: 30px;
-    font-size: 14px;
-    font-weight: bold;
-    text-transform: uppercase;
 }
 
-/* --- Hero Content (Get schooled) --- */
+.navbar .nav-links li a {
+    color: #fff;
+    font-weight: 600;
+    font-size: 0.9em;
+}
+
+.navbar .menu-icon {
+    display: none; /* Hidden on desktop */
+    font-size: 1.8em;
+    cursor: pointer;
+}
+
+/* Hero Content */
 .hero-content {
     text-align: center;
-    padding-top: 100px;
-    flex-grow: 1; /* Pushes the pros section down */
+    margin-top: -100px; /* Adjust as needed */
 }
 
 .hero-content h1 {
-    font-size: 80px;
-    font-weight: 900; /* Extra bold for "Get schooled" */
-    margin: 0 0 20px 0;
-    text-transform: capitalize; /* "Get schooled" is capitalized in the image */
+    font-size: 5em;
+    font-weight: 700;
+    margin-bottom: 20px;
 }
 
-.hero-subtitles span {
-    color: var(--text-white);
-    font-weight: bold;
-    font-size: 16px;
-    margin: 0 10px;
-    text-transform: uppercase;
-    opacity: 0.8;
-}
-
-.cta-button {
-    background-color: var(--accent-purple);
-    color: var(--text-white);
-    border: none;
-    border-radius: 20px;
-    padding: 12px 25px;
-    font-size: 14px;
-    font-weight: bold;
-    text-transform: uppercase;
-    margin-top: 30px;
-    cursor: pointer;
-    transition: opacity 0.3s;
-}
-.cta-button:hover {
-    opacity: 0.8;
-}
-
-/* --- Pros Section --- */
-.pros-section {
-    padding-bottom: 50px;
-    text-align: center;
-}
-
-.pros-title {
-    color: var(--accent-purple); 
-    font-size: 36px;
-    font-weight: 300;
-    margin-bottom: 50px;
-}
-
-.pros-cards {
+.slogan-buttons {
     display: flex;
     justify-content: center;
-    gap: 30px;
-    padding: 0 20px;
+    gap: 15px;
+    margin-bottom: 40px;
+    color: #888;
+    font-weight: 600;
+    font-size: 1.2em;
 }
 
-.pro-card {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 25%;
-    max-width: 250px;
+.register-button {
+    background-color: #ae48ff;
+    color: #fff;
+    border: none;
+    padding: 15px 30px;
+    border-radius: 20px;
+    font-size: 1.1em;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.register-button:hover {
+    background-color: #8c2cdc;
+}
+
+/* Tutor Section */
+.tutor-section {
     text-align: center;
+    width: 80%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 50px 0;
 }
 
-.pro-avatar {
-    /* Styling the circular profile images */
+.tutor-section h2 {
+    font-size: 2.5em;
+    margin-bottom: 60px;
+    color: #fff;
+}
+
+.tutor-cards {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+}
+
+.tutor-card {
+    text-align: center;
+    color: #fff;
+}
+
+.tutor-card img {
+    border-radius: 50%;
     width: 150px;
     height: 150px;
-    border-radius: 50%;
     object-fit: cover;
     margin-bottom: 15px;
 }
 
-.pro-card h3 {
-    font-size: 16px;
-    font-weight: bold;
-    margin: 0;
+.tutor-card h3 {
+    font-size: 1.3em;
+    margin-bottom: 5px;
 }
 
-.pro-card p {
-    font-size: 14px;
-    color: var(--text-light-gray);
-    margin: 5px 0 0 0;
-    line-height: 1.4;
+.tutor-card p {
+    font-size: 0.9em;
+    color: #ccc;
+    margin-bottom: 5px;
 }
 
-
-/* ------------------------------------------------------------------ */
-/* --- 2. Testimonial Section (Quote Section) --- */
-/* ------------------------------------------------------------------ */
+/* Testimonial Section */
 .testimonial-section {
-    background-color: var(--vibrant-purple);
-    padding: 80px 5%; 
-    width: 100%;
-    box-sizing: border-box; 
-    /* The quote section transitions immediately after the hero */
-}
-
-.testimonial-content {
-    /* Flexbox setup to arrange image and text */
+    background-color: #ae48ff;
+    padding: 80px 0;
     display: flex;
-    align-items: center; 
-    max-width: 900px; 
-    margin: 0 auto; 
-    gap: 60px; /* Increased gap to match the visual spacing */
+    justify-content: center;
+    align-items: center;
 }
 
-.testimonial-image {
-    /* Styling the circular image */
+.testimonial-card {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+    width: 80%;
+    max-width: 900px;
+    color: #fff;
+}
+
+.testimonial-card img {
+    border-radius: 50%;
     width: 160px;
     height: 160px;
-    border-radius: 50%;
     object-fit: cover;
-    flex-shrink: 0; 
+    flex-shrink: 0;
 }
 
-.quote-text-container {
-    color: var(--text-white);
+.testimonial-text p {
+    font-size: 1.2em;
+    margin-bottom: 15px;
 }
 
-.quote-text {
-    /* Blockquote styling */
-    font-size: 20px;
-    line-height: 1.6;
-    margin: 0 0 15px 0; 
-    font-weight: 300;
-    opacity: 0.9;
+.testimonial-text strong {
+    font-size: 1.1em;
 }
 
-.quote-author-name {
-    /* Author name style */
-    font-size: 16px;
-    font-weight: bold;
-    margin: 0;
-}
-
-.quote-author-title {
-    /* Author title style */
-    font-size: 14px;
-    margin: 5px 0 0 0;
-    color: var(--text-white);
-    opacity: 0.7;
-}
-
-/* Optional: Media query for basic responsiveness */
-@media (max-width: 768px) {
-    .pros-cards {
-        flex-wrap: wrap;
-    }
-    .pro-card {
-        width: 45%; 
-    }
-    .testimonial-content {
-        flex-direction: column; 
-        text-align: center;
-        gap: 30px;
-    }
-    .hero-content h1 {
-        font-size: 50px;
-    }
-}
-/* --- Global Styles & Variables (Centralized Styling) --- */
-:root {
-    /* Base Colors */
-    --dark-bg: #090e12;           /* Main dark background */
-    --membership-bg: #141821;     /* Slightly lighter dark background for Membership section (inferred) */
-    --text-white: #FFFFFF;
-    --text-light-gray: #CCCCCC;
-    
-    /* Accent Colors */
-    --accent-purple: #9a08e0;         
-    --vibrant-purple: #a96fdd;    
-    --star-yellow: #f8c11e;       
-}
-
-/* Base reset for consistent appearance */
-body {
-    margin: 0;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-    color: var(--text-white);
-    background-color: var(--dark-bg);
-}
-
-/* ... (Existing global styles like ul, a, header, hero-section) ... */
-
-/* --- Common Section Title Style --- */
-.section-title {
-    font-size: 36px;
-    font-weight: 300;
-    text-align: center;
-    margin-bottom: 50px;
-}
-
-/* ------------------------------------------------------------------ */
-/* --- 3. Tutorials Section (Videos List) --- */
-/* ------------------------------------------------------------------ */
-.tutorials-section {
-    padding: 80px 5%;
-    background-color: var(--text-white); /* White background as seen in the screenshot */
-    color: #000000; /* Black text on white background */
+/* Popular Tutorials Section */
+.popular-tutorials-section {
+    background-color: #000;
+    padding: 80px 0;
     text-align: center;
 }
 
-.tutorials-title {
-    /* Styling to match the "Most popular tutorials" text */
-    color: #000000;
+.popular-tutorials-section h2 {
+    font-size: 2.5em;
+    color: #fff;
+    margin-bottom: 60px;
 }
 
-.tutorials-title strong {
-    color: var(--accent-purple); /* Assuming "popular" is the part with accent color */
-    font-weight: bold;
-}
-
-/* --- Tutorial Grid Container --- */
-.tutorials-grid {
+.tutorial-cards {
     display: grid;
-    grid-template-columns: repeat(4, 1fr); 
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 30px;
+    width: 80%;
     max-width: 1200px;
     margin: 0 auto;
 }
 
-/* --- Individual Tutorial Card --- */
 .tutorial-card {
-    background-color: var(--text-white);
-    text-align: left; 
+    background-color: #333;
+    border-radius: 10px;
+    overflow: hidden;
+    text-align: left;
+    color: #fff;
+    padding-bottom: 20px;
 }
 
-/* Thumbnail and Play Icon */
-.thumbnail-container {
+.tutorial-card .video-thumbnail {
     position: relative;
-    margin-bottom: 10px;
-}
-
-.tutorial-thumbnail {
     width: 100%;
-    display: block;
-    height: auto;
-    border-radius: 5px; 
+    padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+    background-color: #555; /* Placeholder color */
+    margin-bottom: 15px;
 }
 
-.play-icon {
+.tutorial-card .video-thumbnail img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.tutorial-card .play-button {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    color: var(--text-white);
-    font-size: 50px; 
-    opacity: 0.8;
+    background-color: rgba(0, 0, 0, 0.7);
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2em;
+    color: #ae48ff;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
 }
 
-/* Text Content */
+.tutorial-card .play-button:hover {
+    background-color: rgba(0, 0, 0, 0.9);
+}
+
 .tutorial-card h3 {
-    font-size: 16px;
-    font-weight: bold;
-    margin: 5px 0;
-    color: #000000; /* Ensure text is black */
+    font-size: 1.2em;
+    margin: 0 20px 10px;
 }
 
-.tutorial-description {
-    font-size: 14px;
-    color: #000000; /* Ensure text is black */
-    opacity: 0.7;
-    margin: 0 0 15px 0;
-    line-height: 1.4;
+.tutorial-card p {
+    font-size: 0.9em;
+    color: #ccc;
+    margin: 0 20px 15px;
 }
 
-/* Author Info */
-.tutorial-author {
+.tutorial-card .author-rating {
     display: flex;
     align-items: center;
+    margin: 0 20px;
     gap: 10px;
-    margin-bottom: 15px;
 }
 
-.author-avatar {
+.tutorial-card .author-rating img {
+    border-radius: 50%;
     width: 30px;
     height: 30px;
-    border-radius: 50%;
     object-fit: cover;
 }
 
-.tutorial-author h4 {
-    font-size: 14px;
-    font-weight: bold;
-    margin: 0;
-    color: var(--accent-purple); 
+.tutorial-card .author-rating span {
+    font-weight: 600;
+    font-size: 0.9em;
 }
 
-/* Card Footer (Rating and Duration) */
-.card-footer {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+.tutorial-card .stars {
+    margin-left: auto;
 }
 
-.rating {
-    display: flex;
-    gap: 2px;
+.tutorial-card .stars .fas.fa-star {
+    color: #ae48ff;
 }
-
-.rating .rated {
-    color: var(--accent-purple); /* Stars are purple in this section */
-    font-size: 12px;
-}
-.rating .unrated {
-    color: var(--accent-purple);
-    opacity: 0.3; /* Lighter purple for unrated */
-    font-size: 12px;
-}
-
-.tutorial-duration {
-    font-size: 14px;
-    color: #000000;
-    opacity: 0.5;
-    margin: 0;
+.tutorial-card .stars .far.fa-star {
+    color: #ccc;
 }
 
 
-/* ------------------------------------------------------------------ */
-/* --- 4. Membership Section --- */
-/* ------------------------------------------------------------------ */
+/* Membership Section */
 .membership-section {
-    background-color: var(--membership-bg); /* Dark blue/black background */
-    padding: 80px 5%;
+    background-color: #000;
+    padding: 80px 0;
     text-align: center;
 }
 
-.membership-title {
-    color: var(--accent-purple); /* Title is purple */
-    margin-bottom: 70px;
+.membership-section h2 {
+    font-size: 2.5em;
+    color: #fff;
+    margin-bottom: 60px;
 }
 
-.membership-grid {
+.membership-benefits {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 30px;
-    max-width: 1200px;
-    margin: 0 auto 50px auto; /* Margin above the button */
+    width: 80%;
+    max-width: 1000px;
+    margin: 0 auto 50px;
 }
 
-.membership-benefit {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+.benefit-card {
     text-align: center;
+    color: #fff;
 }
 
-.benefit-icon {
-    /* Using the SVG image - assuming it has internal path color set to accent-purple */
-    width: 44px; 
-    height: 44px;
-    /* If the SVG is monochrome, you may need a CSS filter to color it */
-    filter: invert(40%) sepia(90%) saturate(1000%) hue-rotate(250deg) brightness(1.2); 
+.benefit-card i {
+    font-size: 4em;
+    color: #ae48ff;
     margin-bottom: 20px;
 }
 
-.membership-benefit h3 {
-    font-size: 18px;
-    font-weight: bold;
-    margin: 0 0 10px 0;
+.benefit-card h3 {
+    font-size: 1.4em;
+    margin-bottom: 10px;
 }
 
-.membership-benefit p {
-    font-size: 14px;
-    color: var(--text-light-gray);
-    margin: 0;
-    line-height: 1.6;
+.benefit-card p {
+    font-size: 0.9em;
+    color: #ccc;
 }
 
-.membership-cta {
-    /* Reusing the cta-button style */
-    display: inline-block;
-    padding: 12px 40px;
-    margin-top: 0; /* Remove top margin as spacing is on the grid container */
-}
-
-
-/* Optional: Media Query for Responsiveness */
-@media (max-width: 1024px) {
-    .tutorials-grid, .membership-grid {
-        /* Switch to 2 columns on tablets/mid-size screens */
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
-
-@media (max-width: 600px) {
-    .tutorials-grid, .membership-grid {
-        /* Switch to 1 column on mobile screens */
-        grid-template-columns: 1fr;
-    }
-    .section-title {
-        font-size: 30px;
-    }
-}
-/* --- Global Styles & Variables (Centralized Styling) --- */
-:root {
-    /* Base Colors */
-    --dark-bg: #090e12;           
-    --membership-bg: #141821;     
-    --text-white: #FFFFFF;
-    --text-light-gray: #CCCCCC;
-    
-    /* Accent Colors */
-    --accent-purple: #9a08e0;       
-    --vibrant-purple: #a96fdd;    
-    --star-yellow: #f8c11e;       
-}
-/* ... (Existing global styles like body, ul, a, etc.) ... */
-
-/* --- Common Section Title Style (Ensuring it works for all sections) --- */
-.section-title {
-    font-size: 36px;
-    font-weight: 300;
-    text-align: center;
-    margin-bottom: 50px;
-}
-/* ... (All previous sections styles - Hero, Testimonial, Tutorials, Membership) ... */
-
-/* ------------------------------------------------------------------ */
-/* --- 5. F.A.Q. Section --- */
-/* ------------------------------------------------------------------ */
+/* FAQ Section */
 .faq-section {
-    background-color: var(--text-white); /* White background as per image */
-    color: #000000;
-    padding: 80px 5%;
+    background-color: #fff; /* White background */
+    padding: 80px 0;
+    text-align: center;
+    color: #000; /* Black text for this section */
 }
 
-.faq-title {
-    color: #000000;
+.faq-section h2 {
+    font-size: 2.5em;
+    color: #000;
+    margin-bottom: 60px;
 }
 
-.faq-container {
-    /* Two-column layout using Flexbox for simplicity and easy wrapping */
-    display: flex;
-    justify-content: center;
-    gap: 100px; /* Large gap between the two main columns */
+.faq-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 40px;
+    width: 80%;
     max-width: 1200px;
     margin: 0 auto;
+    text-align: left;
 }
 
-.faq-column {
-    width: 45%; /* Each column takes up less than half of the container */
+.faq-item h3 {
+    font-size: 1.3em;
+    margin-bottom: 15px;
 }
 
-.faq-item {
-    margin-bottom: 40px; /* Space between FAQ items */
+.faq-item p {
+    font-size: 0.95em;
+    color: #555;
+    line-height: 1.8;
 }
 
-.faq-question {
-    font-size: 16px;
-    font-weight: bold;
-    margin: 0 0 10px 0;
-}
-
-.faq-answer {
-    font-size: 14px;
-    line-height: 1.6;
-    color: #000000;
-    opacity: 0.7;
-    margin: 0;
-}
-
-
-/* ------------------------------------------------------------------ */
-/* --- 6. Footer Section --- */
-/* ------------------------------------------------------------------ */
-.main-footer {
-    background-color: var(--membership-bg); /* Use the dark background color */
-    padding: 40px 5% 20px 5%;
+/* Footer */
+.footer {
+    background-color: #000;
+    padding: 40px 0;
+    text-align: center;
+    color: #fff;
 }
 
 .footer-content {
-    max-width: 1200px;
-    margin: 0 auto;
-    
-    /* Layout for logo/social group and copyright text */
-    display: flex;
-    flex-direction: column;
-    align-items: center; /* Center everything horizontally */
-}
-
-.footer-logo-social {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 100%; /* Spans the full width of the footer-content area */
+    width: 80%;
     max-width: 1200px;
-    margin-bottom: 40px;
+    margin: 0 auto 30px;
+    flex-wrap: wrap; /* Allow wrapping on smaller screens */
 }
 
 .footer-logo {
-    width: 150px; /* Keep logo size consistent */
-    height: auto;
-}
-
-.social-icons {
     display: flex;
-    gap: 20px;
+    align-items: center;
+    font-size: 1.2em;
+    font-weight: 700;
 }
 
-.social-icons i {
-    color: var(--text-white);
-    font-size: 24px;
-    transition: color 0.2s;
+.footer-logo img {
+    margin-right: 10px;
 }
 
-.social-icons i:hover {
-    color: var(--accent-purple);
+.social-icons a {
+    color: #fff;
+    font-size: 1.5em;
+    margin-left: 20px;
+    transition: color 0.3s ease;
 }
 
-.copyright-text {
-    font-size: 12px;
-    color: var(--text-light-gray);
-    margin: 0;
-    opacity: 0.6;
+.social-icons a:hover {
+    color: #ae48ff;
 }
 
+.footer p {
+    font-size: 0.8em;
+    color: #ccc;
+}
 
-/* Optional: Media Queries for Responsiveness */
-@media (max-width: 768px) {
-    /* F.A.Q. Stack columns on smaller screens */
-    .faq-container {
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .hero-content h1 {
+        font-size: 4em;
+    }
+
+    .tutor-cards, .tutorial-cards, .membership-benefits {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .testimonial-card {
         flex-direction: column;
-        gap: 0;
+        text-align: center;
+        gap: 30px;
     }
-    .faq-column {
-        width: 100%;
+}
+
+@media (max-width: 768px) {
+    .navbar .nav-links {
+        display: none; /* Hide nav links */
     }
 
-    /* Footer adjustments */
-    .footer-logo-social {
+    .navbar .menu-icon {
+        display: block; /* Show menu icon */
+    }
+
+    .hero-content h1 {
+        font-size: 3em;
+    }
+
+    .slogan-buttons {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .tutor-cards, .tutorial-cards, .membership-benefits, .faq-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .tutor-card, .tutorial-card, .benefit-card, .faq-item {
+        width: 90%;
+        margin: 0 auto;
+    }
+
+    .testimonial-card {
+        width: 90%;
+    }
+
+    .footer-content {
         flex-direction: column;
         gap: 20px;
+    }
+
+    .footer-logo {
+        margin-bottom: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-content h1 {
+        font-size: 2.5em;
+    }
+
+    .register-button {
+        padding: 12px 25px;
+        font-size: 1em;
+    }
+
+    .tutor-section h2, .popular-tutorials-section h2, .membership-section h2, .faq-section h2 {
+        font-size: 2em;
+    }
+
+    .testimonial-card img {
+        width: 120px;
+        height: 120px;
+    }
+
+    .tutorial-card .play-button {
+        width: 50px;
+        height: 50px;
+        font-size: 1.5em;
     }
 }
