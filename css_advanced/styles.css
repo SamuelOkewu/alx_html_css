@@ -1,0 +1,642 @@
+/* --- Global Styles & Variables (Centralized Styling) --- */
+:root {
+    /* Base Colors - Inferred from the Figma image */
+    --dark-bg: #090e12;
+    --text-white: #FFFFFF;
+    --text-light-gray: #CCCCCC;
+    
+    /* Accent Colors - Inferred from the Figma image */
+    --accent-purple: #9a08e0;       /* Used for main button & "Learn from the pros" */
+    --vibrant-purple: #a96fdd;    /* Used for the quote section background */
+}
+
+/* Base reset for consistent appearance */
+body {
+    margin: 0;
+    /* Using system font to match the clean look */
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    color: var(--text-white);
+    background-color: var(--dark-bg);
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+a {
+    text-decoration: none;
+    color: var(--text-white);
+    transition: opacity 0.2s;
+}
+a:hover {
+    opacity: 0.8;
+}
+
+/* ------------------------------------------------------------------ */
+/* --- 1. Hero Section (Header + Main CTA + Pros) --- */
+/* ------------------------------------------------------------------ */
+.hero-section {
+    /* Background image and overlay effect */
+    background-image: url('https://i.imgur.com/g8rGfJg.jpg'); /* Placeholder for the woman smiling */
+    background-size: cover;
+    background-position: center top;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+    padding: 0 5%;
+    
+    /* Setup for content layout */
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Dark gradient overlay to enhance text readability and overall mood */
+.hero-section::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(
+        180deg, 
+        rgba(0, 0, 0, 0.4) 0%, 
+        rgba(0, 0, 0, 0.8) 50%, 
+        var(--dark-bg) 100%
+    );
+    z-index: 1; /* Place overlay above background image, but below content */
+}
+
+/* Ensure all content is above the overlay */
+header, main {
+    z-index: 2; 
+}
+
+/* --- Header and Navigation --- */
+header {
+    width: 100%;
+    padding: 20px 0;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    width: 150px;
+    height: auto;
+}
+
+.nav-links {
+    display: flex;
+    gap: 30px;
+    font-size: 14px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+/* --- Hero Content (Get schooled) --- */
+.hero-content {
+    text-align: center;
+    padding-top: 100px;
+    flex-grow: 1; /* Pushes the pros section down */
+}
+
+.hero-content h1 {
+    font-size: 80px;
+    font-weight: 900; /* Extra bold for "Get schooled" */
+    margin: 0 0 20px 0;
+    text-transform: capitalize; /* "Get schooled" is capitalized in the image */
+}
+
+.hero-subtitles span {
+    color: var(--text-white);
+    font-weight: bold;
+    font-size: 16px;
+    margin: 0 10px;
+    text-transform: uppercase;
+    opacity: 0.8;
+}
+
+.cta-button {
+    background-color: var(--accent-purple);
+    color: var(--text-white);
+    border: none;
+    border-radius: 20px;
+    padding: 12px 25px;
+    font-size: 14px;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-top: 30px;
+    cursor: pointer;
+    transition: opacity 0.3s;
+}
+.cta-button:hover {
+    opacity: 0.8;
+}
+
+/* --- Pros Section --- */
+.pros-section {
+    padding-bottom: 50px;
+    text-align: center;
+}
+
+.pros-title {
+    color: var(--accent-purple); 
+    font-size: 36px;
+    font-weight: 300;
+    margin-bottom: 50px;
+}
+
+.pros-cards {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    padding: 0 20px;
+}
+
+.pro-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 25%;
+    max-width: 250px;
+    text-align: center;
+}
+
+.pro-avatar {
+    /* Styling the circular profile images */
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 15px;
+}
+
+.pro-card h3 {
+    font-size: 16px;
+    font-weight: bold;
+    margin: 0;
+}
+
+.pro-card p {
+    font-size: 14px;
+    color: var(--text-light-gray);
+    margin: 5px 0 0 0;
+    line-height: 1.4;
+}
+
+
+/* ------------------------------------------------------------------ */
+/* --- 2. Testimonial Section (Quote Section) --- */
+/* ------------------------------------------------------------------ */
+.testimonial-section {
+    background-color: var(--vibrant-purple);
+    padding: 80px 5%; 
+    width: 100%;
+    box-sizing: border-box; 
+    /* The quote section transitions immediately after the hero */
+}
+
+.testimonial-content {
+    /* Flexbox setup to arrange image and text */
+    display: flex;
+    align-items: center; 
+    max-width: 900px; 
+    margin: 0 auto; 
+    gap: 60px; /* Increased gap to match the visual spacing */
+}
+
+.testimonial-image {
+    /* Styling the circular image */
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    object-fit: cover;
+    flex-shrink: 0; 
+}
+
+.quote-text-container {
+    color: var(--text-white);
+}
+
+.quote-text {
+    /* Blockquote styling */
+    font-size: 20px;
+    line-height: 1.6;
+    margin: 0 0 15px 0; 
+    font-weight: 300;
+    opacity: 0.9;
+}
+
+.quote-author-name {
+    /* Author name style */
+    font-size: 16px;
+    font-weight: bold;
+    margin: 0;
+}
+
+.quote-author-title {
+    /* Author title style */
+    font-size: 14px;
+    margin: 5px 0 0 0;
+    color: var(--text-white);
+    opacity: 0.7;
+}
+
+/* Optional: Media query for basic responsiveness */
+@media (max-width: 768px) {
+    .pros-cards {
+        flex-wrap: wrap;
+    }
+    .pro-card {
+        width: 45%; 
+    }
+    .testimonial-content {
+        flex-direction: column; 
+        text-align: center;
+        gap: 30px;
+    }
+    .hero-content h1 {
+        font-size: 50px;
+    }
+}
+/* --- Global Styles & Variables (Centralized Styling) --- */
+:root {
+    /* Base Colors */
+    --dark-bg: #090e12;           /* Main dark background */
+    --membership-bg: #141821;     /* Slightly lighter dark background for Membership section (inferred) */
+    --text-white: #FFFFFF;
+    --text-light-gray: #CCCCCC;
+    
+    /* Accent Colors */
+    --accent-purple: #9a08e0;         
+    --vibrant-purple: #a96fdd;    
+    --star-yellow: #f8c11e;       
+}
+
+/* Base reset for consistent appearance */
+body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    color: var(--text-white);
+    background-color: var(--dark-bg);
+}
+
+/* ... (Existing global styles like ul, a, header, hero-section) ... */
+
+/* --- Common Section Title Style --- */
+.section-title {
+    font-size: 36px;
+    font-weight: 300;
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+/* ------------------------------------------------------------------ */
+/* --- 3. Tutorials Section (Videos List) --- */
+/* ------------------------------------------------------------------ */
+.tutorials-section {
+    padding: 80px 5%;
+    background-color: var(--text-white); /* White background as seen in the screenshot */
+    color: #000000; /* Black text on white background */
+    text-align: center;
+}
+
+.tutorials-title {
+    /* Styling to match the "Most popular tutorials" text */
+    color: #000000;
+}
+
+.tutorials-title strong {
+    color: var(--accent-purple); /* Assuming "popular" is the part with accent color */
+    font-weight: bold;
+}
+
+/* --- Tutorial Grid Container --- */
+.tutorials-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); 
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* --- Individual Tutorial Card --- */
+.tutorial-card {
+    background-color: var(--text-white);
+    text-align: left; 
+}
+
+/* Thumbnail and Play Icon */
+.thumbnail-container {
+    position: relative;
+    margin-bottom: 10px;
+}
+
+.tutorial-thumbnail {
+    width: 100%;
+    display: block;
+    height: auto;
+    border-radius: 5px; 
+}
+
+.play-icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: var(--text-white);
+    font-size: 50px; 
+    opacity: 0.8;
+}
+
+/* Text Content */
+.tutorial-card h3 {
+    font-size: 16px;
+    font-weight: bold;
+    margin: 5px 0;
+    color: #000000; /* Ensure text is black */
+}
+
+.tutorial-description {
+    font-size: 14px;
+    color: #000000; /* Ensure text is black */
+    opacity: 0.7;
+    margin: 0 0 15px 0;
+    line-height: 1.4;
+}
+
+/* Author Info */
+.tutorial-author {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.author-avatar {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.tutorial-author h4 {
+    font-size: 14px;
+    font-weight: bold;
+    margin: 0;
+    color: var(--accent-purple); 
+}
+
+/* Card Footer (Rating and Duration) */
+.card-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.rating {
+    display: flex;
+    gap: 2px;
+}
+
+.rating .rated {
+    color: var(--accent-purple); /* Stars are purple in this section */
+    font-size: 12px;
+}
+.rating .unrated {
+    color: var(--accent-purple);
+    opacity: 0.3; /* Lighter purple for unrated */
+    font-size: 12px;
+}
+
+.tutorial-duration {
+    font-size: 14px;
+    color: #000000;
+    opacity: 0.5;
+    margin: 0;
+}
+
+
+/* ------------------------------------------------------------------ */
+/* --- 4. Membership Section --- */
+/* ------------------------------------------------------------------ */
+.membership-section {
+    background-color: var(--membership-bg); /* Dark blue/black background */
+    padding: 80px 5%;
+    text-align: center;
+}
+
+.membership-title {
+    color: var(--accent-purple); /* Title is purple */
+    margin-bottom: 70px;
+}
+
+.membership-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto 50px auto; /* Margin above the button */
+}
+
+.membership-benefit {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.benefit-icon {
+    /* Using the SVG image - assuming it has internal path color set to accent-purple */
+    width: 44px; 
+    height: 44px;
+    /* If the SVG is monochrome, you may need a CSS filter to color it */
+    filter: invert(40%) sepia(90%) saturate(1000%) hue-rotate(250deg) brightness(1.2); 
+    margin-bottom: 20px;
+}
+
+.membership-benefit h3 {
+    font-size: 18px;
+    font-weight: bold;
+    margin: 0 0 10px 0;
+}
+
+.membership-benefit p {
+    font-size: 14px;
+    color: var(--text-light-gray);
+    margin: 0;
+    line-height: 1.6;
+}
+
+.membership-cta {
+    /* Reusing the cta-button style */
+    display: inline-block;
+    padding: 12px 40px;
+    margin-top: 0; /* Remove top margin as spacing is on the grid container */
+}
+
+
+/* Optional: Media Query for Responsiveness */
+@media (max-width: 1024px) {
+    .tutorials-grid, .membership-grid {
+        /* Switch to 2 columns on tablets/mid-size screens */
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .tutorials-grid, .membership-grid {
+        /* Switch to 1 column on mobile screens */
+        grid-template-columns: 1fr;
+    }
+    .section-title {
+        font-size: 30px;
+    }
+}
+/* --- Global Styles & Variables (Centralized Styling) --- */
+:root {
+    /* Base Colors */
+    --dark-bg: #090e12;           
+    --membership-bg: #141821;     
+    --text-white: #FFFFFF;
+    --text-light-gray: #CCCCCC;
+    
+    /* Accent Colors */
+    --accent-purple: #9a08e0;       
+    --vibrant-purple: #a96fdd;    
+    --star-yellow: #f8c11e;       
+}
+/* ... (Existing global styles like body, ul, a, etc.) ... */
+
+/* --- Common Section Title Style (Ensuring it works for all sections) --- */
+.section-title {
+    font-size: 36px;
+    font-weight: 300;
+    text-align: center;
+    margin-bottom: 50px;
+}
+/* ... (All previous sections styles - Hero, Testimonial, Tutorials, Membership) ... */
+
+/* ------------------------------------------------------------------ */
+/* --- 5. F.A.Q. Section --- */
+/* ------------------------------------------------------------------ */
+.faq-section {
+    background-color: var(--text-white); /* White background as per image */
+    color: #000000;
+    padding: 80px 5%;
+}
+
+.faq-title {
+    color: #000000;
+}
+
+.faq-container {
+    /* Two-column layout using Flexbox for simplicity and easy wrapping */
+    display: flex;
+    justify-content: center;
+    gap: 100px; /* Large gap between the two main columns */
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.faq-column {
+    width: 45%; /* Each column takes up less than half of the container */
+}
+
+.faq-item {
+    margin-bottom: 40px; /* Space between FAQ items */
+}
+
+.faq-question {
+    font-size: 16px;
+    font-weight: bold;
+    margin: 0 0 10px 0;
+}
+
+.faq-answer {
+    font-size: 14px;
+    line-height: 1.6;
+    color: #000000;
+    opacity: 0.7;
+    margin: 0;
+}
+
+
+/* ------------------------------------------------------------------ */
+/* --- 6. Footer Section --- */
+/* ------------------------------------------------------------------ */
+.main-footer {
+    background-color: var(--membership-bg); /* Use the dark background color */
+    padding: 40px 5% 20px 5%;
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    
+    /* Layout for logo/social group and copyright text */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center everything horizontally */
+}
+
+.footer-logo-social {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%; /* Spans the full width of the footer-content area */
+    max-width: 1200px;
+    margin-bottom: 40px;
+}
+
+.footer-logo {
+    width: 150px; /* Keep logo size consistent */
+    height: auto;
+}
+
+.social-icons {
+    display: flex;
+    gap: 20px;
+}
+
+.social-icons i {
+    color: var(--text-white);
+    font-size: 24px;
+    transition: color 0.2s;
+}
+
+.social-icons i:hover {
+    color: var(--accent-purple);
+}
+
+.copyright-text {
+    font-size: 12px;
+    color: var(--text-light-gray);
+    margin: 0;
+    opacity: 0.6;
+}
+
+
+/* Optional: Media Queries for Responsiveness */
+@media (max-width: 768px) {
+    /* F.A.Q. Stack columns on smaller screens */
+    .faq-container {
+        flex-direction: column;
+        gap: 0;
+    }
+    .faq-column {
+        width: 100%;
+    }
+
+    /* Footer adjustments */
+    .footer-logo-social {
+        flex-direction: column;
+        gap: 20px;
+    }
+}
